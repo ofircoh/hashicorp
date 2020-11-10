@@ -1,8 +1,7 @@
 {
   "backend": {
-    "consul": {
-      "address": "consul:8500",
-      "path": "vault/"
+    "file": {
+      "path": "vault/data"
     }
   },
   "listener": {
@@ -11,10 +10,5 @@
       "tls_disable": 1
     }
   },
-  "ui": true,
-  "acl": {
-  "enabled": true,
-  "default_policy": "deny",
-  "down_policy": "extend-cache"
-  }
+  "ui": true
 }
