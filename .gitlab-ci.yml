@@ -5,13 +5,13 @@ stages:
 install-docker-compose:
   stage: prep_environment
   tags:
-    - linux
+    - fa6cab46
   script:
     - sudo pip install docker-compose
 
 docker-compose-build:
   stage: build_docker_services
   tags:
-    - linux
+    - fa6cab46
   script:
     - docker-compose up -d --build
