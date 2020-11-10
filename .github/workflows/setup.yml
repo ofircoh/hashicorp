@@ -1,0 +1,30 @@
+name: Setup Consul & Vault Environmant
+
+on:
+  push:
+    branches: [ develop ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix: 
+        python-version : [3.6]
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.6'
+
+      - name: Install docker compose
+        run: pip install docker-compose
+
+      - name: Start docker services
+        run: docker-compose up -d --build
+      
+      - name: Run sanity check 
+        run: 
+        
