@@ -28,11 +28,16 @@ jobs:
       - name: Run docker ps
         run: docker ps
 
+      - name: Generate ACL master token
+        run: |
+            export MASTER_TOKEN=$(uuidgen)
+            sed -i -e "s/{master_token}/$MASTER_TOKEN/g" consul/config/consul-config.json
+
       - name: Run sanity check
         run: docker-compose exec -T consul bash -c "consul validate /consul/config/config.json"
 
-      - name: Create test key
-        run: docker-compose exec -T consul bash -c "consul kv put ofir/test/key 24"
+     # - name: Create test key
+     #   run: docker-compose exec -T consul bash -c "consul kv put ofir/test/key 24"
 
       - name: Get test key
-        run: docker-compose exec -T consul bash -c "consul kv get -detailed ofir/test/key"
+        run: docker-compose exec -T consul bash -c "consul kv --token=$MASTER_TOKEN read --recurse / --format prettyjson"
