@@ -32,6 +32,7 @@ jobs:
         run: |
             export MASTER_TOKEN=$(uuidgen)
             sed -i -e "s/{master_token}/$MASTER_TOKEN/g" consul/config/consul-config.json
+            cat consul/config/consul-config.json
 
       - name: Run sanity check
         run: docker-compose exec -T consul bash -c "consul validate /consul/config/config.json"
