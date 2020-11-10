@@ -2,7 +2,7 @@ name: Setup Consul Environment CI
 
 on:
   push:
-    branches: [ develop ]
+    branches: [ master ]
 
 jobs:
   build:
