@@ -3,8 +3,6 @@ name: Setup Consul Environmant
 on:
   push:
     branches: [ develop ]
-  pull_request:
-    branches: [ master ]
 
 jobs:
   build:
