@@ -39,6 +39,6 @@ jobs:
 
       - name: Create and read test key using the REST API
         run: |
-            export MASTER_TOKEN=$(cat consul/config/consul-config.json | grep master_token | awk '{print substr($2, 1, length($2)-2)}')
+            export MASTER_TOKEN=$(cat consul/config/consul-config.json | grep master_token | awk '{print substr($2, 1, length($2)-2)}' | tr -d \")
             curl --header "X-Consul-Token: $MASTER_TOKEN" --request PUT --data "ofir test" http://127.0.0.1:8500/v1/kv/foo
             curl --header "X-Consul-Token: $MASTER_TOKEN" --request GET http://127.0.0.1:8500/v1/kv/foo
