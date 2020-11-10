@@ -7,7 +7,7 @@ install-docker-compose:
   tags:
     - gitlab-org-docker
   script:
-    - sudo pip install docker-compose
+    - pip install docker-compose
 
 docker-compose-build:
   stage: build_docker_services
