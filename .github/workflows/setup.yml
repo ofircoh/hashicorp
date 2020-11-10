@@ -36,8 +36,8 @@ jobs:
       - name: Run sanity check
         run: docker-compose exec -T consul bash -c "consul validate /consul/config/config.json"
 
-     # - name: Create test key
-     #   run: docker-compose exec -T consul bash -c "consul kv put ofir/test/key 24"
+      - name: Create test key using the REST API
+        run: 'curl --header "X-Consul-Token: $MASTER_TOKEN" --request PUT --data "ofir test" http://127.0.0.1:8500/v1/kv/foo'
 
-      - name: Get test key
-        run: docker-compose exec -T consul bash -c "consul kv --token=$MASTER_TOKEN read --recurse / --format prettyjson"
+      - name: Get test key using the REST API
+        run: 'curl --header "X-Consul-Token: $MASTER_TOKEN" --request GET http://127.0.0.1:8500/v1/kv/foo'
