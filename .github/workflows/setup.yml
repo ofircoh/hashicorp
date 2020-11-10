@@ -34,9 +34,6 @@ jobs:
       - name: Run sanity check
         run: docker-compose exec -T consul bash -c "consul validate /consul/config/config.json"
 
-      - name: Run ACL bootstrap
-        run: docker-compose exec -T consul bash -c "consul acl bootstrap"
-
       - name: Create and read test key using the REST API
         run: |
             export MASTER_TOKEN=$(cat consul/config/consul-config.json | grep master_token | awk '{print substr($2, 1, length($2)-2)}' | tr -d \")
