@@ -1,16 +1,16 @@
 stages:
-  - install_docker_compose
-  - docker_compose_build
+  - prep_environment
+  - build_docker_services
 
-install-vault-and-consul:
+install-docker-compose:
   stage: prep_environment
   tags:
     - shell
   script:
     - sudo pip install docker-compose
 
-docker_compose_build:
-  stage: docker_compose_build
+docker-compose-build:
+  stage: build_docker_services
   tags:
     - shell
   script:
