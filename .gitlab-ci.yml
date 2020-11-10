@@ -5,13 +5,13 @@ stages:
 install-docker-compose:
   stage: prep_environment
   tags:
-    - shell
+    - linux
   script:
     - sudo pip install docker-compose
 
 docker-compose-build:
   stage: build_docker_services
   tags:
-    - shell
+    - linux
   script:
     - docker-compose up -d --build
