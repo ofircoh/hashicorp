@@ -16,6 +16,7 @@ jobs:
       - uses: actions/setup-python@v2
         with:
           python-version: '3.6'
+        env:
           MASTER_TOKEN: 7ab2c87e-3898-40e3-8af1-c779f2a3a376
 
       - name: Install docker compose
