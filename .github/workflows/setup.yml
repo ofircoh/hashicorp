@@ -26,5 +26,5 @@ jobs:
         run: docker-compose up -d --build
       
       - name: Run sanity check 
-        run: 
+        run: docker-compose exec consul bash -c "consul validate /consul/config/config.json"
         
