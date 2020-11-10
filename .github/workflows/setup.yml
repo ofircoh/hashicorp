@@ -27,5 +27,3 @@ jobs:
       
       - name: Run sanity check
         run: docker-compose exec consul bash -c "consul validate /consul/config/config.json"
-        env:
-          COMPOSE_INTERACTIVE_NO_CLI: 1
