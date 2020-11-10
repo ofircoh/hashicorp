@@ -6,5 +6,10 @@
   "ui": true,
   "ports": {
     "dns": 53
-  }
+  },
+  "acl_datacenter": "localhost",
+  "acl_master_token": "79d73e4d-0cd5-407d-837d-a4cd3e5601dd",
+  "acl_default_policy": "deny",
+  "acl_down_policy": "extend-cache"
+
 }

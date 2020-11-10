@@ -30,3 +30,9 @@ jobs:
 
       - name: Run sanity check
         run: docker-compose exec -T consul bash -c "consul validate /consul/config/config.json"
+
+      - name: Create test key
+        run: docker-compose exec -T consul bash -c "consul kv put ofir/test/key 24"
+
+      - name: Get test key
+        run: docker-compose exec -T consul bash -c "consul kv get -detailed ofir/test/key"
