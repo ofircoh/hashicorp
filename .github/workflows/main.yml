@@ -24,7 +24,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Install docker compose
-        run: pip3.6 install docker-compose
+        run: pip install docker-compose
 
       # Runs a set of commands using the runners shell
       - name: Start docker services
