@@ -8,7 +8,7 @@
     "dns": 53
   },
   "acl_datacenter": "localhost",
-  "acl_master_token": "{master_token}",
+  "acl_master_token": "7ab2c87e-3898-40e3-8af1-c779f2a3a376",
   "acl_default_policy": "deny",
   "acl_down_policy": "extend-cache"
 
