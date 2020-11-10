@@ -29,5 +29,6 @@ jobs:
 
       - name: Create and read test key using the REST API
         run: |
+            echo $MASTER_TOKEN
             curl --header "X-Consul-Token: $MASTER_TOKEN" --request PUT --data "ofir test" http://127.0.0.1:8500/v1/kv/foo
             curl --header "X-Consul-Token: $MASTER_TOKEN" --request GET http://127.0.0.1:8500/v1/kv/foo
