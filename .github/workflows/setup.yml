@@ -25,9 +25,6 @@ jobs:
       - name: Start docker services
         run: docker-compose up -d --build
 
-      - name: Run ACL bootstrap
-        run: docker-compose exec -T consul bash -c "consul acl bootstrap"
-
       - name: Generate ACL master token
         run: |
             export MASTER_TOKEN=$(uuidgen)
@@ -36,6 +33,9 @@ jobs:
 
       - name: Run sanity check
         run: docker-compose exec -T consul bash -c "consul validate /consul/config/config.json"
+
+      - name: Run ACL bootstrap
+        run: docker-compose exec -T consul bash -c "consul acl bootstrap"
 
       - name: Create and read test key using the REST API
         run: |
