@@ -1,4 +1,4 @@
-name: Setup Consul & Vault Environmant
+name: Setup Consul Environmant
 
 on:
   push:
