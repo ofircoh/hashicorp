@@ -1,0 +1,15 @@
+{
+  "datacenter": "localhost",
+  "data_dir": "/consul/data",
+  "log_level": "DEBUG",
+  "server": true,
+  "ui": true,
+  "ports": {
+    "dns": 53
+  },
+  "acl_datacenter": "localhost",
+  "acl_master_token": "9beb4f8e-7220-41d2-946c-b8a8e3574692",
+  "acl_default_policy": "deny",
+  "acl_down_policy": "extend-cache"
+
+}
