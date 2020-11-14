@@ -22,10 +22,10 @@ jobs:
         run: cd /opt/hashicorp
 
       - name: Make sure docker-compose is installed
-        run: sudo docker-compose version
+        run: docker-compose version
 
       - name: Make sure consul service is up and running
-        run: sudo docker-compose exec -T consul bash -c "consul version"
+        run: docker-compose exec -T consul bash -c "consul version"
 
       - name: Restart Consul container to load new configuration
         run: sudo docker-compose down && sudo docker-compose up -d --build
