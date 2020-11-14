@@ -8,7 +8,7 @@ services:
       dockerfile: Dockerfile
     ports:
       - 8500:8500
-    command: agent -server -bind 0.0.0.0 -client 0.0.0.0 -bootstrap-expect 1 -config-file=/consul/config/config.json
+    command: agent -server -bind 0.0.0.0 -client 0.0.0.0 -bootstrap-expect 1 -config-file=/consul/consul.d/server/config.json -config-dir=/consul/consul.d/ -data-dir=/consul/data
     volumes:
-      - ./consul/config/consul-config.json:/consul/config/config.json
+      - ./consul/consul.d/:/consul/consul.d
       - ./consul/data:/consul/data

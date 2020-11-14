@@ -7,9 +7,11 @@
   "ports": {
     "dns": 53
   },
-  "acl_datacenter": "localhost",
-  "acl_master_token": "9beb4f8e-7220-41d2-946c-b8a8e3574692",
-  "acl_default_policy": "deny",
-  "acl_down_policy": "extend-cache"
+  "acl": {
+      "tokens": {
+      "default": "9beb4f8e-7220-41d2-946c-b8a8e3574692",
+      "agent": "cafb274e-dfa9-4bec-bc81-aae2d9894357"
+    }
+  }
 
 }
