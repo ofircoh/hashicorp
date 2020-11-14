@@ -28,7 +28,7 @@ jobs:
         run: docker-compose exec -T consul bash -c "consul version"
 
       - name: Restart Consul container to load new configuration
-        run: docker-compose down && sudo docker-compose up -d --build
+        run: docker-compose down && docker-compose up -d --build
 
       - name: Run consul configuration sanity check
         run: docker-compose exec -T consul bash -c "consul validate /consul/config/config.json"
