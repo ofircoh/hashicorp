@@ -4,11 +4,13 @@ on:
   push:
     branches: [ master ]
 
+defaults:
+  run:
+    working-directory: /opt/hashicorp
+
 jobs:
   site-config-deployment:
     runs-on: self-hosted
-    defaults:
-      working-directory: /opt/hashicorp
     strategy:
       matrix:
         python-version: [3.6]
