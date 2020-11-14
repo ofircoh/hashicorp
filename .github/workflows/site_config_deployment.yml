@@ -31,7 +31,7 @@ jobs:
         run: docker-compose down && docker-compose up -d --build
 
       - name: Run consul configuration sanity check
-        run: docker-compose exec -T consul bash -c "consul validate /consul/config/config.json"
+        run: docker-compose exec -T consul bash -c "consul validate /consul/consul.d/server/"
 
       - name: Make sure site-a service is available
         run: |
