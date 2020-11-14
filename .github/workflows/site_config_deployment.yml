@@ -14,6 +14,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: cd into working directory
+        run: cd /opt/hashicorp
+
       - name: Make sure docker-compose is installed
         run: sudo docker-compose version
 
