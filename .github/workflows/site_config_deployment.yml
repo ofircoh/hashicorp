@@ -36,4 +36,4 @@ jobs:
       - name: Make sure site-a service is available
         run: |
           export TOKEN=$(cat /opt/hashicorp/consul/consul.d/server/config.json | grep agent | awk '{print substr($2, 1, length($2)-2)}' | tr -d \")
-          curl -i --header "X-Consul-Token: $TOKEN" --request GET http://127.0.0.1:8500/v1/catalog/service/site-a
+          'curl -i --header "X-Consul-Token: $TOKEN" --request GET http://127.0.0.1:8500/v1/catalog/service/site-a'
