@@ -5,7 +5,7 @@ on:
     branches: [ master ]
 
 jobs:
-  initial-insfrastructure-checks:
+  site-config-deployment:
     runs-on: self-hosted
     strategy:
       matrix:
@@ -23,32 +23,8 @@ jobs:
       - name: Make sure consul service is up and running
         run: docker-compose exec -T consul bash -c "consul version"
 
-  push-new-config-to-production:
-    runs-on: self-hosted
-    strategy:
-      matrix:
-        python-version: [3.6]
-
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
-        with:
-          python-version: '3.6'
-
       - name: Restart Consul container to load new configuration
-        run: docker-compose
-
-  sanity-checks-after-push:
-    runs-on: self-hosted
-    strategy:
-      matrix: 
-        python-version : [3.6]
-
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
-        with:
-          python-version: '3.6'
+        run: docker-compose down && docker-compose up -d --build
 
       - name: Run consul configuration sanity check
         run: docker-compose exec -T consul bash -c "consul validate /consul/config/config.json"
