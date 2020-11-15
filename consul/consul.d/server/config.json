@@ -8,9 +8,11 @@
     "dns": 53
   },
   "acl": {
+      "enabled": true,
+      "default_policy": "deny",
+      "enable_token_persistence": true,
       "tokens": {
-      "default": "9beb4f8e-7220-41d2-946c-b8a8e3574692",
-      "agent": "cafb274e-dfa9-4bec-bc81-aae2d9894357"
+      "default": "96e9adb8-371a-7beb-645c-869203f8e069"
     }
   }
 

@@ -16,12 +16,12 @@ jobs:
 
       - name: Push new configuration to Consul
         run: |
-          export TOKEN=9beb4f8e-7220-41d2-946c-b8a8e3574692
+          export TOKEN=96e9adb8-371a-7beb-645c-869203f8e069
           curl --header "X-Consul-Token: $TOKEN" --request PUT --data "@./consul/sites_configurations/site-a.json" http://54.75.91.35:8500/v1/kv/sites/site-a
 
       - name: Make sure site-a configuration is available and updated
         run: |
-          export TOKEN=9beb4f8e-7220-41d2-946c-b8a8e3574692
+          export TOKEN=96e9adb8-371a-7beb-645c-869203f8e069
           curl --header "X-Consul-Token: $TOKEN" --request GET http://54.75.91.35:8500/v1/kv/sites/site-a
 
 
