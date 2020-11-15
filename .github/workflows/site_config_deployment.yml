@@ -1,4 +1,4 @@
-name: Setup Consul Environment CI
+name: Consul Configuration Deployment
 
 on:
   push:
