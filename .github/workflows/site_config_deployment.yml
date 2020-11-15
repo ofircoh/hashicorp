@@ -22,9 +22,6 @@ jobs:
       - name: Make sure site-a configuration is available and updated
         run: |
           export TOKEN=9beb4f8e-7220-41d2-946c-b8a8e3574692
-          export NEW_CONFIG_BASE64=$(base64 ./consul/sites_configurations/site-a.json)
           curl --header "X-Consul-Token: $TOKEN" --request GET http://54.75.91.35:8500/v1/kv/sites/site-a
-          export PRODUCTION_CONFIG_BASE64=$(echo !! | cut -d ':' -f 5 | cut -d "," -f 1 | tr -d \")
-          if [[ ${PRODUCTION_CONFIG_BASE64::-1} == $NEW_CONFIG_BASE64 ]]; then echo "Config is updated!";  fi
 
 
