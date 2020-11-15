@@ -21,7 +21,7 @@ jobs:
       - name: Push new configuration to Consul
         run: |
           export TOKEN=9beb4f8e-7220-41d2-946c-b8a8e3574692
-          curl --header "X-Consul-Token: $TOKEN" --request PUT --data "@/opt/hashicorp/sites_configurations/site-a.json" http://54.75.91.35/:8500/v1/kv/sites/site-a
+          curl --header "X-Consul-Token: $TOKEN" --request PUT --data "@/opt/hashicorp/sites_configurations/site-a.json" http://54.75.91.35/8500/v1/kv/sites/site-a
 
       - name: Make sure site-a configuration is available
         run: |
